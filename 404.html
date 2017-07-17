@@ -40,9 +40,20 @@
 
   ga('create', 'UA-89704639-1', 'auto');
   ga('send', 'pageview');
+
+  function getQueryParam(key) {
+      var matches = window.location.search.match('(\\?|&)' + key + '\\=([^&]*)');
+      return decodeURIComponent(matches ? matches.pop() : '');
+  }
+
+  var referrer = getQueryParam('utm_source');
+  if (referrer) {
+      var expiration = new Date(Date.now() + (7 * 24 * 60 * 60 * 1000));
+      document.cookie='cm_referrer=' + referrer + '; expires=' + expiration.toUTCString() + '; path=/; domain=corridormusic.com';
+  }
 </script>
 
-    <link href="/app.bundle.css?c0ec7b2985468ce2d6c4" rel="stylesheet"></head>
+    <link href="/app.bundle.css?39bf55164b0a9fceea93" rel="stylesheet"></head>
     <body>
         <div class="static container-fluid text-center">
             <nav class="navbar navbar-default navbar-fixed-top">
@@ -60,5 +71,5 @@
                 </div>
             </div>
         </div>
-    <script type="text/javascript" src="/vendor.bundle.js?c0ec7b2985468ce2d6c4"></script><script type="text/javascript" src="/app.bundle.js?c0ec7b2985468ce2d6c4"></script></body>
+    <script type="text/javascript" src="/vendor.bundle.js?39bf55164b0a9fceea93"></script><script type="text/javascript" src="/app.bundle.js?39bf55164b0a9fceea93"></script></body>
 </html>
